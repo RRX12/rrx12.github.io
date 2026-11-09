@@ -1,56 +1,134 @@
-/* Read-mode article layout. Scoped to this note to preserve the rest of the site. */
+/* Article reading system: quiet warm surfaces, evergreen navigation, clear hierarchy. */
 .agent-evaluation-page {
-  --vp-font-family-base: 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
-  --vp-font-family-mono: 'Cascadia Code', Consolas, monospace;
+  --article-ink: #243b35;
+  --article-muted: #626d67;
+  --article-rule: #dce3de;
+  --article-tint: #eef3ef;
+  --vp-c-bg: #fffefa;
+  --vp-c-bg-alt: #f3f5f1;
+  --vp-c-bg-soft: #f4f6f2;
+  --vp-c-text-1: #29332e;
+  --vp-c-text-2: #626d67;
+  --vp-c-text-3: #626d67;
+  --vp-c-divider: #dce3de;
+  --vp-font-family-base: 'Segoe UI', 'Microsoft YaHei', 'PingFang SC', sans-serif;
+  font-family: var(--vp-font-family-base);
 }
-.agent-evaluation-page .VPDoc .content-container { max-width: 760px; }
-.agent-evaluation-page .vp-doc { font-size: 16px; line-height: 1.9; overflow-wrap: anywhere; }
-.agent-evaluation-page .vp-doc h1 { max-width: 720px; font-size: 36px; line-height: 1.25; letter-spacing: -.025em; text-wrap: balance; }
-.agent-evaluation-page .vp-doc .article-subtitle { margin: 18px 0 40px; color: var(--vp-c-text-2); font-size: 19px; line-height: 1.65; }
-.agent-evaluation-page .vp-doc h2 { margin: 56px 0 24px; padding-top: 24px; font-size: 25px; line-height: 1.5; letter-spacing: -.015em; text-wrap: balance; }
-.agent-evaluation-page .vp-doc h3 { margin: 36px 0 18px; font-size: 20px; line-height: 1.6; letter-spacing: 0; }
-.agent-evaluation-page .vp-doc p { margin: 18px 0; line-height: 1.9; }
-.agent-evaluation-page .vp-doc li + li { margin-top: 10px; }
+.dark .agent-evaluation-page {
+  --article-ink: #dcebe3;
+  --article-muted: #a9b6ae;
+  --article-rule: #36423b;
+  --article-tint: #24372e;
+  --vp-c-bg: #191f1b;
+  --vp-c-bg-alt: #151b17;
+  --vp-c-bg-soft: #222c25;
+  --vp-c-text-1: #e1e7e2;
+  --vp-c-text-2: #a9b6ae;
+  --vp-c-text-3: #a9b6ae;
+  --vp-c-divider: #36423b;
+}
+.agent-evaluation-page .VPDoc .content-container { max-width: 720px; }
+.agent-evaluation-page .VPDoc .content { min-width: 0; }
+.agent-evaluation-page .VPDoc .aside { max-width: 232px; padding-left: 28px; }
+.agent-evaluation-page .VPDoc .aside-container { width: 204px; }
+.agent-evaluation-page .vp-doc { font-size: 16px; line-height: 1.95; overflow-wrap: break-word; }
+.agent-evaluation-page .vp-doc h1 {
+  max-width: 610px; margin: 0; color: var(--article-ink); font-size: 44px;
+  font-weight: 650; line-height: 1.15; letter-spacing: -.035em; text-wrap: balance;
+}
+.agent-evaluation-page .article-heading { padding: 4px 0 0; margin-bottom: 38px; }
+.agent-evaluation-page .vp-doc .article-subtitle { margin: 22px 0 30px; font-size: 18px; line-height: 1.75; color: var(--article-muted); }
+.agent-evaluation-page .article-tools { display: flex; align-items: center; flex-wrap: wrap; gap: 8px 16px; padding: 12px 0; border-top: 1px solid var(--article-rule); border-bottom: 1px solid var(--article-rule); }
+.agent-evaluation-page .vp-doc .article-meta { margin: 0; color: var(--article-muted); font-size: 12px; line-height: 1.5; }
+.agent-evaluation-page .article-meta span { padding: 0 8px; }
+.agent-evaluation-page .article-actions { display: flex; gap: 4px; margin-left: auto; }
+.agent-evaluation-page .article-actions button { display: inline-flex; align-items: center; gap: 7px; min-height: 36px; padding: 7px 10px; border-radius: 5px; color: var(--article-muted); font: inherit; font-size: 12px; cursor: pointer; transition: background .15s, color .15s; }
+.agent-evaluation-page .article-actions button:hover { background: var(--article-tint); color: var(--vp-c-brand-1); }
+.agent-evaluation-page .article-status:empty { display: none; }
+.agent-evaluation-page .article-status { flex-basis: 100%; font-size: 12px; color: var(--vp-c-brand-1); }
+.agent-evaluation-page .vp-doc h2 { display: flex; align-items: baseline; gap: 14px; margin: 64px 0 26px; padding-top: 24px; border-top: 1px solid var(--article-rule); font-size: 26px; font-weight: 650; line-height: 1.55; letter-spacing: -.02em; color: var(--article-ink); }
+.agent-evaluation-page .vp-doc h2 .chapter-number { color: var(--vp-c-brand-1); font-size: 15px; font-weight: 500; letter-spacing: 0; font-variant-numeric: tabular-nums; }
+.agent-evaluation-page .vp-doc h2#前言-为什么需要-agent-evaluation { margin-top: 0; padding-top: 0; border-top: 0; font-size: 22px; }
+.agent-evaluation-page .vp-doc h3 { margin: 36px 0 18px; font-size: 19px; font-weight: 650; line-height: 1.7; letter-spacing: 0; color: var(--article-ink); }
+.agent-evaluation-page .vp-doc p { margin: 18px 0; line-height: 1.95; }
+.agent-evaluation-page .vp-doc strong { font-weight: 650; }
+.agent-evaluation-page .vp-doc li + li { margin-top: 9px; }
 .agent-evaluation-page .vp-doc li > p { margin: 10px 0; }
+.agent-evaluation-page .vp-doc li::marker { color: var(--vp-c-brand-1); font-variant-numeric: tabular-nums; }
 .agent-evaluation-page .vp-doc hr { display: none; }
 .agent-evaluation-page .vp-doc a { text-underline-offset: 4px; }
 .agent-evaluation-page a:focus-visible,
-.agent-evaluation-page button:focus-visible { outline: 2px solid var(--vp-c-brand-1); outline-offset: 4px; border-radius: 2px; }
+.agent-evaluation-page button:focus-visible,
+.agent-evaluation-page .table-scroll:focus-visible { outline: 2px solid var(--vp-c-brand-1); outline-offset: 4px; border-radius: 3px; }
 .agent-evaluation-page ::selection { background: var(--vp-c-brand-soft); }
-.agent-evaluation-page .vp-doc table { display: block; width: 100%; overflow-x: auto; font-size: 14px; line-height: 1.75; margin: 28px 0; font-variant-numeric: tabular-nums; }
-.agent-evaluation-page .vp-doc th { white-space: nowrap; font-weight: 600; background: var(--vp-c-bg-alt); }
+.agent-evaluation-page .article-takeaway { margin: 28px 0; padding: 16px 22px; background: var(--article-tint); border-radius: 6px; color: var(--article-ink); }
+.agent-evaluation-page .article-takeaway p { margin: 0; font-size: 15px; line-height: 1.85; }
+.agent-evaluation-page .table-scroll { overflow-x: auto; margin: 28px 0; border: 1px solid var(--article-rule); border-radius: 6px; }
+.agent-evaluation-page .vp-doc table { display: table; width: 100%; margin: 0; border-collapse: collapse; font-size: 14px; line-height: 1.8; font-variant-numeric: tabular-nums; }
+.agent-evaluation-page .vp-doc th { color: var(--article-ink); font-weight: 650; background: var(--article-tint); text-align: left; white-space: nowrap; }
 .agent-evaluation-page .vp-doc th,
-.agent-evaluation-page .vp-doc td { padding: 12px 16px; min-width: 100px; vertical-align: top; }
+.agent-evaluation-page .vp-doc td { padding: 13px 16px; min-width: 108px; border: 0; border-bottom: 1px solid var(--article-rule); vertical-align: top; }
+.agent-evaluation-page .vp-doc tr { border: 0; background: transparent; }
 .agent-evaluation-page .vp-doc tr:nth-child(2n) { background: var(--vp-c-bg-soft); }
-.agent-evaluation-page .vp-doc blockquote { margin: 24px 0; padding: 8px 20px; border-left: 1px solid var(--vp-c-brand-1); color: var(--vp-c-text-2); }
+.agent-evaluation-page .vp-doc tbody tr:last-child td { border-bottom: 0; }
+.agent-evaluation-page .vp-doc blockquote { margin: 24px 0; padding: 8px 20px; border-left: 1px solid var(--vp-c-brand-1); color: var(--article-muted); }
 .agent-evaluation-page .vp-doc div[class*='language-'] { margin: 24px 0; border-radius: 6px; }
-.agent-evaluation-page .vp-doc pre { overflow-x: auto; font-size: 14px; line-height: 1.7; }
+.agent-evaluation-page .vp-doc pre { overflow-x: auto; font: 14px/1.7 'Cascadia Code', Consolas, monospace; }
 .agent-evaluation-page .vp-doc :not(pre) > code { overflow-wrap: anywhere; }
-.agent-evaluation-page .evaluation-figure { margin: 32px 0; }
-.agent-evaluation-page .evaluation-figure > a { display: block; border: 1px solid var(--vp-c-divider); border-radius: 4px; overflow: hidden; background: white; }
+.agent-evaluation-page .evaluation-figure { margin: 32px 0; padding: 12px; background: var(--vp-c-bg-soft); border: 1px solid var(--article-rule); border-radius: 8px; }
+.agent-evaluation-page .evaluation-figure > a { display: block; overflow: hidden; border-radius: 3px; background: white; cursor: zoom-in; }
 .agent-evaluation-page .evaluation-figure img { width: 100%; height: auto; display: block; }
-.agent-evaluation-page .evaluation-figure figcaption { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 8px 20px; margin-top: 10px; font-size: 13px; line-height: 1.7; color: var(--vp-c-text-2); }
+.agent-evaluation-page .evaluation-figure figcaption { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 8px 20px; padding: 12px 4px 1px; font-size: 12px; line-height: 1.7; color: var(--article-muted); }
 .agent-evaluation-page .evaluation-figure figcaption a { white-space: nowrap; }
-.agent-evaluation-page .VPDocAsideOutline .outline-link { white-space: normal; line-height: 1.55; padding: 6px 0; font-size: 12px; }
-.agent-evaluation-page .VPDocAsideOutline .outline-title { margin-bottom: 10px; }
+.agent-evaluation-page .VPDocAsideOutline .outline-title { margin-bottom: 14px; font-size: 13px; letter-spacing: .02em; }
+.agent-evaluation-page .VPDocAsideOutline .outline-link { white-space: normal; line-height: 1.65; padding: 8px 0; font-size: 12px; }
+.agent-evaluation-page .VPDocAsideOutline .outline-link.active { font-weight: 600; }
+.agent-evaluation-page .VPDocAsideOutline .outline-marker { display: none; }
+.agent-evaluation-page .VPDocAsideOutline .outline-link.active { color: var(--vp-c-brand-1); }
 .agent-evaluation-page .VPDocAsideOutline .nested { padding-left: 12px; }
+.agent-evaluation-page .VPLocalNavOutlineDropdown .outline-link { white-space: normal; line-height: 1.65; padding: 7px 0; }
+@supports selector(li:has(a)) {
+  .agent-evaluation-page .VPDocAsideOutline li > .nested { display: none; }
+  .agent-evaluation-page .VPDocAsideOutline li:has(.active) > .nested { display: block; }
+}
+.agent-evaluation-page .VPSidebarItem.is-active > .item { background: var(--article-tint); border-radius: 5px; }
+.agent-evaluation-page .VPSidebarItem .item { padding-left: 10px; padding-right: 10px; }
+.agent-evaluation-page .VPSidebarItem.level-1 .text { font-size: 13px; line-height: 1.7; }
 .agent-evaluation-page .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
-@media (min-width: 1440px) {
-  .agent-evaluation-page .VPDoc.has-aside .content-container { max-width: 760px; }
+@media (min-width: 1280px) {
+  .agent-evaluation-page .VPDoc.has-aside .content-container { max-width: 720px; }
+  .agent-evaluation-page .VPDoc > .container { max-width: 1056px; }
+  .agent-evaluation-page .VPDoc .content { padding-left: 24px; padding-right: 32px; }
 }
 @media (max-width: 767px) {
-  .agent-evaluation-page .vp-doc h1 { font-size: 28px; }
-  .agent-evaluation-page .vp-doc .article-subtitle { font-size: 17px; margin-bottom: 32px; }
-  .agent-evaluation-page .vp-doc h2 { font-size: 23px; margin-top: 42px; }
-  .agent-evaluation-page .vp-doc h3 { font-size: 19px; }
+  .agent-evaluation-page .vp-doc { font-size: 16px; }
+  .agent-evaluation-page .vp-doc h1 { font-size: 32px; max-width: 440px; }
+  .agent-evaluation-page .vp-doc .article-subtitle { font-size: 16px; margin: 18px 0 24px; }
+  .agent-evaluation-page .vp-doc h2 { font-size: 23px; gap: 10px; margin-top: 48px; }
+  .agent-evaluation-page .vp-doc h3 { font-size: 18px; }
+  .agent-evaluation-page .article-tools { gap: 4px; }
+  .agent-evaluation-page .article-actions button { min-height: 44px; padding: 8px; }
+  .agent-evaluation-page .article-takeaway { padding: 16px 18px; }
   .agent-evaluation-page .vp-doc th,
   .agent-evaluation-page .vp-doc td { padding: 10px 12px; min-width: 110px; }
-  .agent-evaluation-page .evaluation-figure figcaption { font-size: 12px; }
+  .agent-evaluation-page .evaluation-figure { padding: 7px; }
+  .agent-evaluation-page .evaluation-figure figcaption { padding: 10px 3px 3px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .agent-evaluation-page *, .agent-evaluation-page *::before, .agent-evaluation-page *::after { scroll-behavior: auto !important; transition: none !important; }
 }
 @media print {
-  .agent-evaluation-page .VPDoc { padding: 0 !important; }
+  .agent-evaluation-page .VPNav, .agent-evaluation-page .VPSidebar,
+  .agent-evaluation-page .VPDoc .aside, .agent-evaluation-page .VPLocalNav,
+  .agent-evaluation-page .article-actions, .agent-evaluation-page .article-status,
+  .agent-evaluation-page .VPDocFooter { display: none !important; }
+  .agent-evaluation-page .VPContent { margin: 0 !important; padding: 0 !important; }
+  .agent-evaluation-page .VPDoc, .agent-evaluation-page .VPDoc .content { padding: 0 !important; }
+  .agent-evaluation-page .VPDoc .content-container { max-width: none; }
   .agent-evaluation-page .vp-doc { font-size: 11pt; }
+  .agent-evaluation-page .vp-doc h2, .agent-evaluation-page .vp-doc h3 { break-after: avoid; }
   .agent-evaluation-page .evaluation-figure { break-inside: avoid; }
   .agent-evaluation-page .evaluation-figure figcaption a { display: none; }
+  .agent-evaluation-page .table-scroll { overflow: visible; }
 }
 
