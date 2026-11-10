@@ -6,8 +6,9 @@ import { fileURLToPath } from 'node:url'
 const notesDir = fileURLToPath(new URL('../notes/', import.meta.url))
 const notes = readdirSync(notesDir).filter(f => f.endsWith('.md') && f !== 'index.md').sort().map(file => {
   const source = readFileSync(notesDir + file, 'utf8')
-  return { text: source.match(/^#\s+(.+)$/m)?.[1] || file.replace(/\.md$/, ''), link: '/notes/' + file.replace(/\.md$/, '') }
-})
+  const order = Number(source.match(/^order:\s*(\d+)$/m)?.[1] ?? 999)
+  return { order, text: source.match(/^#\s+(.+)$/m)?.[1] || file.replace(/\.md$/, ''), link: '/notes/' + file.replace(/\.md$/, '') }
+}).sort((a, b) => a.order - b.order || a.link.localeCompare(b.link)).map(({ order, ...note }) => note)
 
 export default defineConfig({
   lang: 'zh-CN',

@@ -1,14 +1,23 @@
 ---
-title: Agent Evaluation & Continuous Improvement
+title: Agent 评测（一）：从评测设计到问题定位
 description: 从评测设计到持续优化的 Agent 评测方法论：业务标准、主客观评测、问题定位与 Good Case / Bad Case 数据飞轮。
 pageClass: agent-evaluation-page
 outline: [2, 3]
+order: 1
+chapters: 5
+figureCount: 2
+prev: false
+next:
+  text: 'Agent 评测（二）：从评测资产到持续演进'
+  link: '/notes/agent-evaluation-system'
 ---
 
 <header class="article-heading">
 
-# Agent Evaluation & Continuous Improvement
+# Agent 评测（一）：从评测设计到问题定位
 <p class="article-subtitle">从评测设计到持续优化的 Agent 评测方法论</p>
+
+<p class="article-series">Agent 评测系列 · 第一篇<br><a href="/notes/agent-evaluation-system">继续阅读第二篇：从评测资产到持续演进 →</a></p>
 
 <ArticleTools />
 
